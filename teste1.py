@@ -15,8 +15,7 @@ try:
 
 
     cursor.execute("Select *FROM aluno")
-    print(cursor.fetchall()) # fetchall: Serve para buscar e exibir todos os resultados de uma consulta SQL feita anteriormente em um banco de dados. 
-                            #Ele pega todas as linhas restantes retornadas pela consulta e as imprime na tela em formato de lista.
+    print(cursor.fetchall())
 
     cursor.execute("DELETE from aluno WHERE idade = 20")
 
