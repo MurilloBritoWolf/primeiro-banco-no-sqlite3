@@ -20,6 +20,16 @@ try:
     cursor.execute("DELETE from aluno WHERE idade = 20")
 
     banco.commit()
+    
+    cursor.execute("""
+    DELETE FROM aluno 
+    WHERE rowid NOT IN (
+        SELECT MIN(rowid)
+        FROM aluno
+        GROUP BY email
+    )
+""")
+    banco.commit()
     banco.close()
     print("Os dados foram removidos com sucesso!!")
 
